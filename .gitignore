@@ -1,0 +1,9 @@
+node_modules/
+.next/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.env.local
+econ-ae4c7-da46767a1cd8.json
