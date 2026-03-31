@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server';
 import { getCourse, getLesson, getLessonsByCourse } from '@/lib/data/sheetsRepo';
 
 interface Params {
-  params: { lessonId: string };
+  params: Promise<{ lessonId: string }>;
 }
 
 export async function GET(_request: Request, { params }: Params) {
   try {
-    const lesson = await getLesson(params.lessonId);
+    const { lessonId } = await params;
+    const lesson = await getLesson(lessonId);
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }

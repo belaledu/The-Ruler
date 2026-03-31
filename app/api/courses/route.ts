@@ -9,7 +9,7 @@ export async function GET(request: Request) {
 
     const courses = await getCourses();
 
-    let filteredCourses = courses.filter(course => course.isPublished === 'true' || course.isPublished === true);
+    let filteredCourses = courses.filter((course) => String(course.isPublished).toLowerCase() === 'true');
 
     if (grade) {
       filteredCourses = filteredCourses.filter(course => course.grade === grade);

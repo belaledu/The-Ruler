@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { PlayCircle, Clock, Users, Star } from 'lucide-react';
 
 interface CourseCardProps {
@@ -33,7 +34,7 @@ export function CourseCard({
       {/* Thumbnail Area */}
       <div className="relative h-[200px] w-full bg-surface-2">
         {thumbnailUrl ? (
-          <img src={thumbnailUrl} alt={title} className="w-full h-full object-cover" />
+          <Image src={thumbnailUrl} alt={title} fill className="object-cover" />
         ) : (
           <div className="w-full h-full bg-card-glow flex items-center justify-center">
             <PlayCircle className="w-16 h-16 text-primary/40" />

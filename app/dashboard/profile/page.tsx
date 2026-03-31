@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Sidebar } from '@/components/Sidebar';
 import { useAuth } from '@/context/AuthContext';
 import { Save, User, Lock, BookOpen } from 'lucide-react';
@@ -53,7 +54,13 @@ export default function StudentProfilePage() {
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-white text-sm font-medium">تغيير</span>
                   </div>
-                  <img src="https://picsum.photos/seed/student/200" alt="Student" className="w-full h-full object-cover" />
+                  <Image
+                    src="https://picsum.photos/seed/student/200"
+                    alt="Student"
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-text-primary mb-1">{user?.name || 'طالب'}</h3>

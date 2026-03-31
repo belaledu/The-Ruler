@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { Home, BookOpen, FileText, CheckSquare, Bell, User, MessageSquare, LogOut } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
@@ -35,7 +36,13 @@ export function Sidebar() {
       {/* User Info */}
       <div className="p-6 border-b border-border flex flex-col items-center text-center">
         <div className="w-20 h-20 rounded-full bg-surface-2 border-2 border-primary/50 mb-4 overflow-hidden">
-          <img src="https://picsum.photos/seed/student/200" alt="Student" className="w-full h-full object-cover" />
+          <Image
+            src="https://picsum.photos/seed/student/200"
+            alt="Student"
+            width={80}
+            height={80}
+            className="w-full h-full object-cover"
+          />
         </div>
         <h3 className="font-bold text-lg text-text-primary">{user?.name || 'طالب'}</h3>
         <span className="bg-primary/20 text-primary text-xs font-medium px-3 py-1 rounded-full mt-2">

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 import { AdminSidebar } from '@/components/AdminSidebar';
 import { Plus, Search, Edit, Trash2 } from 'lucide-react';
@@ -181,7 +182,17 @@ export default function AdminCoursesPage() {
                       <td className="p-4">
                         <div className="flex items-center gap-4">
                           <div className="w-16 h-12 bg-surface-2 rounded-lg overflow-hidden shrink-0">
-                            {course.Thumbnail ? <img src={course.Thumbnail} alt="Thumbnail" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center text-text-secondary text-xs">لا صورة</div>}
+                            {course.Thumbnail ? (
+                              <Image
+                                src={course.Thumbnail}
+                                alt="Thumbnail"
+                                width={64}
+                                height={48}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center text-text-secondary text-xs">لا صورة</div>
+                            )}
                           </div>
                           <div>
                             <h4 className="font-bold text-text-primary mb-1">{course.Title}</h4>
